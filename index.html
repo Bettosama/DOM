@@ -1,0 +1,179 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Selecting an Element</title>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+
+      .box{
+        box-shadow: 0px 10px 10px 0px rgba(36, 34, 34, 0.432) inset;
+        margin: 0.5%;
+        font-family: monospace;
+        float: left;
+        width: 10%;
+        height: 100px;
+        color: black;
+        font-size: 50px;
+      }
+      .container {
+        display: flex;
+        height: 500px;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 5%;
+        flex-wrap: wrap;
+      }
+      .box-to-select{
+          display:flex;
+          flex-direction: row;
+          /* flex-wrap: wrap; */
+         
+      }
+      .box-to-select-2{
+          display:flex;
+          flex-direction: row;
+          /* flex-wrap: wrap; */
+      }
+      #box-1 {
+        border: 1px black;
+        background-color: blueviolet;
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+      #box-2 {
+        border: 1px black;
+        background-color: orange;
+        float: left;
+        width: 10%;
+        height: 100px;
+        color: black;
+        font-size: 50px;
+      }
+      #box-3 {
+        border: 1px black;
+        background-color: green;
+        float: left;
+        width: 10%;
+        height: 100px;
+        color: black;
+        font-size: 50px;
+      }
+      #box-4 {
+        border: 1px black;
+        background-color: steelblue;
+        float: left;
+        width: 10%;
+        height: 100px;
+        color: black;
+        font-size: 50px;
+      }
+      #box-5 {
+        border: 1px black;
+        background-color: greenyellow;
+        float: left;
+        width: 10%;
+        height: 100px;
+        color: black;
+        font-size: 50px;
+      }
+      #box-6 {
+        border: 1px black;
+        background-color: purple;
+        float: left;
+        width: 10%;
+        height: 100px;
+        color: black;
+        font-size: 50px;
+      }
+      #box-7 {
+        border: 1px black;
+        background-color: indianred;
+        float: left;
+        width: 10%;
+        height: 100px;
+        color: black;
+        font-size: 50px;
+      }
+      #box-8 {
+        border: 1px black;
+        background-color: burlywood;
+        float: left;
+        width: 10%;
+        height: 100px;
+        color: black;
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <li>
+      <div class="box" id="box-1">1</div>
+      
+      <div class="box box-to-select" id="box-2">2</div>
+      
+      <div class="box box-to-select" id="box-3">3</div>
+      
+      <div class="box box-to-select" id="box-4">4</div>
+      
+    </li>
+    <li>
+      <div class="box" id="box-5">5</div>
+      
+      <div class="box box-to-select-2" id="box-6">6</div>
+      
+      <div class="box box-to-select-2" id="box-7">7</div>
+      
+      <div class="box box-to-select-2" id="box-8">8</div>
+    </div>
+  </li>
+    <script>
+      // document.getElementById
+      // document.getElementByClassName
+      // document.querySelector
+      // document.querySelectorAll
+
+      const box = document.getElementById("box-1");
+      box.addEventListener("click", function (event) {
+        // console.log(event);
+        console.target.style.backgroundColor = "red";
+        // event.target.classList.add("");
+      });
+
+      // Get element by class name
+      var boxes = document.getElementsByClassName("box-to-select");
+      //Iterate boxes through a for loop to add functionality
+      for (const element of boxes) {
+        //Event listener to fire a function on clicking
+        element.addEventListener("click", function (event) {
+          //we take the event and use the dom to change its color
+
+          event.target.style.backgroundColor = "blue";
+
+          console.log(event, "event");
+        });
+      }
+
+      // document.querySelector
+      queryFifthBox = document.querySelector("#box-5");
+      //Event listener to fire a function on clicking
+      queryFifthBox.addEventListener("click", function (event) {
+        //we take the event and use the dom to change its color
+        event.target.style.backgroundColor = "yellow";
+      });
+
+      //get element by querySelectorAll
+      const queryBoxes = document.querySelectorAll(".box-to-select-2");
+      //iterate boxes through a for loop to add functionality
+      for (const element of queryBoxes) {
+        element.addEventListener("click", function (event) {
+          //we take the event and use the dom to change its color
+          event.target.style.backgroundColor = "green";
+        });
+      }
+    </script>
+  </body>
+</html>
